@@ -1,4 +1,3 @@
-"use client";
 import { Table } from "@nextui-org/react/";
 import { Player } from "@/model/character/player";
 import { FC } from "react";
