@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Card, Grid, Input } from "@nextui-org/react";
+import { Card, Grid, Input, useInput } from "@nextui-org/react";
 
 export interface UpdateCardProps {
   text: string;
@@ -8,8 +8,8 @@ export interface UpdateCardProps {
 }
 
 export const UpdateCard: FC<UpdateCardProps> = (props) => {
-  const [state, updateState] = useState(props.text);
   const [editMode, updateEditMode] = useState(false);
+  const {value:state, bindings} = useInput(props.text)
 
   const onPress = () => {
     if (editMode && props.update) {
@@ -34,9 +34,10 @@ export const UpdateCard: FC<UpdateCardProps> = (props) => {
         <Card.Body>
           {editMode ? (
             <Input
+            aria-label={props.label}
+            {...bindings}
               autoFocus
               initialValue={state}
-              onChange={(e) => updateState(e.target.value)}
               onBlur={onPress}
             ></Input>
           ) : (
