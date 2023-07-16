@@ -5,11 +5,13 @@ export type SkillAttributeMapping = Record<string, number>;
 export interface Skill {
   name: string;
   attributeMap: SkillAttributeMapping;
+  id:string
 }
 
 export const createSkill = (skill = { name: "New Skill" }): Skill => ({
   name: skill.name,
   attributeMap: {},
+  id: crypto.randomUUID()
 });
 
 export const getSkillAttributesFromSkill =

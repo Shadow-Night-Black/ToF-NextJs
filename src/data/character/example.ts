@@ -10,10 +10,12 @@ const exampleSkillList: Skill[] = [
       [Power.name]: 3,
       [Finesse.name]: 1,
     },
+    id: crypto.randomUUID(),
   },
   {
     name: "Talking",
     attributeMap: { [Presence.name]: 3, [Intellect.name]: 1 },
+    id: crypto.randomUUID(),
   },
 ];
 

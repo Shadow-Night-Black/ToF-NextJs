@@ -1,6 +1,7 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { Input, useInput } from "@nextui-org/react";
 import { usePress } from "react-aria";
+import { prop } from "monocle-ts/lib/Traversal";
 
 export interface UpdateCardProps {
   text: string;
@@ -10,29 +11,31 @@ export interface UpdateCardProps {
 
 export const UpdateInput: FC<UpdateCardProps> = (props) => {
   const [editMode, updateEditMode] = useState(false);
-  const { value: state, bindings } = useInput(props.text);
+  const { value, bindings } = useInput(props.text);
+  const labelRef = useRef<HTMLLabelElement>(null);
 
+  const { pressProps } = usePress({
+    ref: labelRef,
+    onPress: () => updateEditMode(true),
+    isDisabled: editMode,
+  });
 
-  const onPress = () => {
-    if (editMode && props.update) {
-      props.update(state);
-    }
-
-    updateEditMode(!editMode);
-  };
-
-  const {pressProps} = usePress({onPress});
   return (
     <>
       {editMode ? (
         <Input
+          aria-label="Skill Name"
           {...bindings}
           autoFocus
-          initialValue={state}
-          onBlur={onPress}
+          onBlur={() => {
+            props.update?.(value);
+            updateEditMode(false);
+          }}
         ></Input>
       ) : (
-        <label {...pressProps}>{props.text}</label>
+        <label {...pressProps} ref={labelRef}>
+          {props.text}
+        </label>
       )}
     </>
   );

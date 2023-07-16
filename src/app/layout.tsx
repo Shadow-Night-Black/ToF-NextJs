@@ -4,10 +4,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { Navbar, NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider as NextUiThemesProvider } from "next-themes";
-
-import { lightTheme, darkTheme } from "./themes";
+import { Navbar } from "@nextui-org/react";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,23 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextUiThemesProvider
-          defaultTheme="system"
-          attribute="class"
-          value={{ light: lightTheme, dark: darkTheme }}
-        >
-          <NextUIProvider>
-            <Navbar>
-              <Navbar.Content>
-                <Navbar.Link href="/">Sumary</Navbar.Link>
-                <Navbar.Link href="/blessings">Blessings</Navbar.Link>
-                <Navbar.Link href="/skills">Skills</Navbar.Link>
-                <Navbar.Link href="/items">Items</Navbar.Link>
-              </Navbar.Content>
-            </Navbar>
-            {children}
-          </NextUIProvider>
-        </NextUiThemesProvider>
+        <Providers>
+          <Navbar>
+            <Navbar.Content>
+              <Navbar.Link href="/">Sumary</Navbar.Link>
+              <Navbar.Link href="/blessings">Blessings</Navbar.Link>
+              <Navbar.Link href="/skills">Skills</Navbar.Link>
+              <Navbar.Link href="/items">Items</Navbar.Link>
+            </Navbar.Content>
+          </Navbar>
+          {children}
+        </Providers>
       </body>
     </html>
   );
