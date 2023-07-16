@@ -2,6 +2,7 @@ import { Player } from "@/model/character/player";
 import { FC } from "react";
 import { UpdateCard } from "./input/UpdateCard";
 import { Grid } from "@nextui-org/react";
+import { Update } from "../state/updateLens";
 
 export const CharacterBio: FC<{ character: Player, update:Update<Player>}> = ({ character, update }) => {
   return (

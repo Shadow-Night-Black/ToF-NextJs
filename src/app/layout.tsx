@@ -1,3 +1,4 @@
+"use client";
 
 import "./globals.css";
 import type { Metadata } from "next";
@@ -32,9 +33,9 @@ export default function RootLayout({
             <Navbar>
               <Navbar.Content>
                 <Navbar.Link href="/">Sumary</Navbar.Link>
-                <Navbar.Link href="/Blessings">Blessings</Navbar.Link>
+                <Navbar.Link href="/blessings">Blessings</Navbar.Link>
                 <Navbar.Link href="/skills">Skills</Navbar.Link>
-                <Navbar.Link href="/Items">Items</Navbar.Link>
+                <Navbar.Link href="/items">Items</Navbar.Link>
               </Navbar.Content>
             </Navbar>
             {children}

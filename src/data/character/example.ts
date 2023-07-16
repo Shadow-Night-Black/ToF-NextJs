@@ -1,6 +1,6 @@
 import { Player } from "@/model/character/player";
 import { Skill } from "@/model/character/skill";
-import { Finesse, Power, Intellect, Presence } from "../world/attributes";
+import { Power, Finesse, Intellect, Presence } from "../world/attributes";
 import { state } from "../globalState";
 
 const exampleSkillList: Skill[] = [
