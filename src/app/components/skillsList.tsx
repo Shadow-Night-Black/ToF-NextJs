@@ -1,5 +1,10 @@
 import { Table, Input, Grid, Button } from "@nextui-org/react/";
-import { Player, addSkill, updatePlayerSkill, updatePlayerSkills } from "@/model/character/player";
+import {
+  Player,
+  addSkill,
+  updatePlayerSkill,
+  updatePlayerSkills,
+} from "@/model/character/player";
 import { FC } from "react";
 import { Setting } from "@/model/world/setting";
 import {
@@ -8,11 +13,12 @@ import {
   getTotalAttributeValueFromSkill,
 } from "@/model/character/skill";
 import { UpdateInput } from "./input/UpdateInput";
+import { Update } from "../state/updateLens";
 
 export const SkillsList: FC<{
   character: Player;
   setting: Setting;
-  update: (p: Player) => void;
+  update: Update<Player>
 }> = ({ character, setting, update }) => {
   const cols = ["Name", ...setting.attributes.map((a) => a.name), "Total"];
 
@@ -42,9 +48,6 @@ export const SkillsList: FC<{
                   const attributeLens = getAttributeValueFromSkill(
                     attribute.name
                   );
-                  // skill.attributeMap.find(
-                  //   (a) => a[0] == attribute.name
-                  // )?.[1] ?? "";
                   return (
                     <Table.Cell key={attribute.name}>
                       <Input
@@ -75,8 +78,15 @@ export const SkillsList: FC<{
       </Table>
       <Grid.Container direction="row-reverse">
         <Grid>
-          <Button onPress={() => update(updatePlayerSkills(character)(addSkill(character.skills)(createSkill())))}>
-            {" "}
+          <Button
+            onPress={() =>
+              update(
+                updatePlayerSkills(character)(
+                  addSkill(character.skills)(createSkill())
+                )
+              )
+            }
+          >
             Add new Skill
           </Button>
         </Grid>

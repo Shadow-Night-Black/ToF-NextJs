@@ -1,6 +1,7 @@
 import { Player } from "@/model/character/player";
 import { Skill } from "@/model/character/skill";
 import { Finesse, Power, Intellect, Presence } from "../world/attributes";
+import { state } from "../globalState";
 
 const exampleSkillList: Skill[] = [
   {
@@ -16,10 +17,14 @@ const exampleSkillList: Skill[] = [
   },
 ];
 
-export const Example: Player = {
+export const examplePlayer: Player = {
   playerName: "Player Name",
   characterName: "Character Name",
   skills: exampleSkillList,
   traits: [],
   setting: "The City",
+};
+
+export const exampleGlobalState: state = {
+  character: examplePlayer,
 };
