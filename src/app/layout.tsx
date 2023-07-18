@@ -1,11 +1,9 @@
-"use client"
-
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { Navbar } from "@nextui-org/react";
 import { Providers } from "./providers";
+import { Navigation } from "./components/navigation/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,14 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <Navbar>
-            <Navbar.Content>
-              <Navbar.Link href="/">Sumary</Navbar.Link>
-              <Navbar.Link href="/blessings">Blessings</Navbar.Link>
-              <Navbar.Link href="/skills">Skills</Navbar.Link>
-              <Navbar.Link href="/items">Items</Navbar.Link>
-            </Navbar.Content>
-          </Navbar>
+          <Navigation></Navigation>
           {children}
         </Providers>
       </body>
