@@ -1,3 +1,5 @@
-"use client"
+const blessings = () => {
+  <h1>Blessings</h1>;
+};
 
-export default function Home() {<></>}
+export default blessings;

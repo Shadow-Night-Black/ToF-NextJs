@@ -1,3 +1,5 @@
+"use client"
+
 import { FC } from "react";
 import { ThemeProvider as NextUiThemesProvider } from "next-themes";
 import { lightTheme, darkTheme } from "./themes";

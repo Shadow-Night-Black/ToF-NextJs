@@ -1,7 +1,8 @@
+"use client";
+
 import { FC, useRef, useState } from "react";
 import { Input, useInput } from "@nextui-org/react";
 import { usePress } from "react-aria";
-import { prop } from "monocle-ts/lib/Traversal";
 
 export interface UpdateCardProps {
   text: string;

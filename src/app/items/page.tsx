@@ -1,3 +1,2 @@
-"use client"
-
-export default function Home() {<></>}
+const items = () => <div>Item page</div>
+export default items;

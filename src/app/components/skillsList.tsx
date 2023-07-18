@@ -1,3 +1,5 @@
+"use client"
+
 import { Table, Input, Grid, Button } from "@nextui-org/react/";
 import {
   Player,

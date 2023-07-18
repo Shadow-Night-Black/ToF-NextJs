@@ -1,3 +1,5 @@
+"use client"
+
 import { FC, useState } from "react";
 import { Card, Grid, Input, useInput } from "@nextui-org/react";
 
