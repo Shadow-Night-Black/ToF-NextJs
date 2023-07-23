@@ -1,17 +1,20 @@
 import { Lens, Getter } from "monocle-ts";
+import * as z from "zod";
 
 export type SkillAttributeMapping = Record<string, number>;
 
-export interface Skill {
-  name: string;
-  attributeMap: SkillAttributeMapping;
-  id:string
-}
+export const Skill = z.object({
+  name: z.string(),
+  attributeMap: z.record(z.number()),
+  id: z.string().uuid(),
+});
+
+export type Skill = z.infer<typeof Skill>;
 
 export const createSkill = (skill = { name: "New Skill" }): Skill => ({
   name: skill.name,
   attributeMap: {},
-  id: crypto.randomUUID()
+  id: crypto.randomUUID(),
 });
 
 export const getSkillAttributesFromSkill =
