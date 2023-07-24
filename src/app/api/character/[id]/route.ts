@@ -4,12 +4,7 @@ import {
 } from "@/data/character/example";
 import { playerId } from "@/model/character/player";
 import { NextRequest, NextResponse } from "next/server";
-import * as z from "zod";
 
-export const characterGetRequest = z.object({
-    id: z.string().uuid(),
-});
-export type characterGetRequest = z.infer<typeof characterGetRequest>;
 
 const chars = [examplePlayer, examplePlayer2];
 
