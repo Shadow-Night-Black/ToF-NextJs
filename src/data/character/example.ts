@@ -48,7 +48,7 @@ export const examplePlayer: Player = {
   skills: exampleSkillList,
   traits: [],
   setting: "The City",
-  id: crypto.randomUUID(),
+  id: "6c0d74ff-4ba8-45fc-b756-b4a8d7d66657"
 };
 
 export const examplePlayer2: Player = {
@@ -57,5 +57,5 @@ export const examplePlayer2: Player = {
   skills: exampleSkillList2,
   traits: [],
   setting: "The City",
-  id: crypto.randomUUID(),
+  id: "f51a693e-0bec-4edd-8b54-0fca1dcf9bf6",
 };

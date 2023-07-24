@@ -11,6 +11,6 @@ export type characterGetRequest = z.infer<typeof characterGetRequest>;
 const chars = [examplePlayer, examplePlayer2];
 export async function GET() {
   return NextResponse.json(
-    chars.map((c, i) => ({ id: i, name: c.characterName }))
+    chars.map((c) => ({ id: c.id, name: c.characterName }))
   );
 }
